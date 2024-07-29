@@ -40,11 +40,8 @@ namespace WebApp.Controllers
                         command.Parameters.AddWithValue("@description", productDto.Description);
 
                         command.ExecuteNonQuery();
-
-
                     }
                 }
-
             }
             catch (Exception ex) {
 
@@ -86,17 +83,15 @@ namespace WebApp.Controllers
                                 products.Add(product);
 
                             }
-
                         }
-
                         command.ExecuteNonQuery();
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ModelState.AddModelError("Product", "Sorry we have an exception");
-                return BadRequest(ModelState);
+                return BadRequest(ModelState);  
             }
             return Ok(products);
         }
